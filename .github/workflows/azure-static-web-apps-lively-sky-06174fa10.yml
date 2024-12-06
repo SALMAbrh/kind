@@ -29,6 +29,9 @@ jobs:
         run: |
           npm install --legacy-peer-deps
 
+      - name: Fix Permissions
+        run: chmod +x node_modules/.bin/react-scripts
+
       - name: Build React App
         run: |
           CI=false npm run build
