@@ -19,5 +19,5 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication
 export const auth = getAuth(app); // Fix: Export the auth instance
 
-// Optional: Initialize Analytics if you need it
+// eslint-disable-next-line no-unused-vars
 const analytics = getAnalytics(app);
