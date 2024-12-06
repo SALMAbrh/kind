@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
           lfs: false
-          
+
       - name: Set Up Node.js
         uses: actions/setup-node@v3
         with:
@@ -28,13 +28,12 @@ jobs:
       - name: Install Dependencies
         run: |
           npm ci
+          npm install --save-dev @babel/plugin-proposal-private-property-in-object
           chmod +x node_modules/.bin/*
 
-      - name: Fix Permissions
-        run: chmod -R 755 .
-
       - name: Build React App
-        run: npm run build
+        run: |
+          CI=false npm run build
 
       - name: Build And Deploy
         id: builddeploy
